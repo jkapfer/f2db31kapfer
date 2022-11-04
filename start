@@ -1,0 +1,2 @@
+#! /bin/sh
+DEBUG=f2wb31kapfer:* npm start

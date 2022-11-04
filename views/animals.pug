@@ -1,0 +1,40 @@
+extends layout
+
+block content
+  h1= title
+  -
+    const results = [
+      {
+        "name": "dog",
+        "genus": "Canis",
+        "species": "familiaris",
+        "legs": 4,
+      },
+      {
+         "name": "wolf",
+        "genus": "Canis",
+        "species": "lupis",
+        "legs": 4, 
+      },
+      {
+         "name": "cat",
+        "genus": "Felis",
+        "species": "catus",
+        "legs": 4, 
+      },
+    ]
+    
+  div(class="container-fluid")
+    div(class="row")
+      each val in results 
+        div(class="col-sm-2")
+          h4(class="card-title") #{val["name"]}
+          p(class="card-text") genus: #{val["genus"]} 
+          p(class="card-text") species: #{val["species"]}
+          p(class="card-text") legs: #{val["legs"]}
+    
+    
+
+    
+  
+  
