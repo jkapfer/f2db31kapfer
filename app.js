@@ -18,6 +18,10 @@ var selectorRouter = require('./routes/selector');
 
 var app = express();
 
+
+var Animal = require("./models/animal");
+
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
