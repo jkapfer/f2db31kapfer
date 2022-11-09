@@ -37,7 +37,7 @@ const { Server } = require('http');
 Server.start
 async function recreateDB(){ 
   // Delete everything 
-  await Animal.deleteMany(); 
+  await Animal.deleteMany().catch(); 
  
   let instance1 = new Animal({name:"dog",  genus:"Canis", species: "familiaris", legs: 4}); 
   instance1.save( function(err,doc) { 
