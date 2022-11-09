@@ -4,12 +4,14 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+//Connecting to Atlas MongoDB
 require('dotenv').config(); 
 const connectionString = process.env.MONGO_CON 
 mongoose = require('mongoose'); 
 mongoose.connect(connectionString,  
 {useNewUrlParser: true, useUnifiedTopology: true}); 
 
+//routers
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var animalsRouter = require('./routes/animals');
@@ -18,9 +20,45 @@ var selectorRouter = require('./routes/selector');
 
 var app = express();
 
+//Get the default connection 
+var db = mongoose.connection; 
+ 
+//Bind connection to error event  
+db.on('error', console.error.bind(console, 'MongoDB connection error:')); 
+db.once("open", function(){ 
+  console.log("Connection to DB succeeded")}); 
 
+//Globally visable variable for the animalSchema
 var Animal = require("./models/animal");
+const { Server } = require('http');
 
+// We can seed the collection if needed on 
+Server.start
+async function recreateDB(){ 
+  // Delete everything 
+  await Animal.deleteMany(); 
+ 
+  let instance1 = new Animal({name:"dog",  genus:"Canis", species: "familiaris", legs: 4}); 
+  instance1.save( function(err,doc) { 
+      if(err) return console.error(err); 
+      console.log("First object saved") 
+  });
+  let instance2 = new Animal({name:"wolf",  genus:"Canis", species: "lupus", legs: 4}); 
+  instance2.save( function(err,doc) { 
+      if(err) return console.error(err); 
+      console.log("Second object saved") 
+  });
+  let instance3 = new Animal({name:"cat",  genus:"Felis", species: "catus", legs: 4}); 
+  instance3.save( function(err,doc) { 
+      if(err) return console.error(err); 
+      console.log("Third object saved") 
+  });
+} 
+
+ 
+let reseed = true; 
+if (reseed) { recreateDB();} 
+ 
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
