@@ -52,8 +52,23 @@ exports.animal_delete = function(req, res) {
 }; 
  
 // Handle Animal update form on PUT. 
-exports.animal_update_put = function(req, res) { 
-    res.send('NOT IMPLEMENTED: Animal update PUT' + req.params.id); 
+exports.animal_update_put = async function(req, res) { 
+    console.log(`update on id ${req.params.id} with body ${JSON.stringify(req.body)}`) 
+    try { 
+        let toUpdate = await Animal.findById( req.params.id) 
+        // Do updates of properties 
+        if(req.body.name) toUpdate.name = req.body.name; 
+        if(req.body.genus) toUpdate.genus = req.body.genus; 
+        if(req.body.species) toUpdate.species = req.body.species;
+        if(req.body.legs) toUpdate.legs = req.body.legs; 
+        let result = await toUpdate.save(); 
+        console.log("Sucess " + result) 
+        res.send(result) 
+    } catch (err) { 
+        res.status(500) 
+        res.send(`{"error": ${err}: Update for id ${req.params.id} 
+failed`); 
+    } 
 }; 
 
 // VIEWS 
