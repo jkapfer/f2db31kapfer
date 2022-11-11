@@ -33,6 +33,7 @@ var Animal = require("./models/animal");
 const { Server } = require('http');
 
 // We can seed the collection if needed on server start
+// We won't want to leave this in permenantly
 async function recreateDB(){ 
   // Delete everything 
   await Animal.deleteMany().catch(e => { console.log(e) });
