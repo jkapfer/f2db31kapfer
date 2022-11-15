@@ -11,4 +11,7 @@ router.get('/animals/:id', animal_controller.animal_detail);
 module.exports = router;
 
 /* GET detail animal page */ 
-router.get('/detail', animal_controller.animal_view_one_Page); 
+router.get('/detail', animal_controller.animal_view_one_Page);
+
+/* GET create animal page */ 
+router.get('/create', animal_controller.animal_create_Page); 
