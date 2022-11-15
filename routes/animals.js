@@ -6,6 +6,9 @@ var router = express.Router();
 router.get('/', animal_controller.animal_view_all_Page);
 module.exports = router;
 
-// GET request for one costume. 
+// GET request for one animal. 
 router.get('/animals/:id', animal_controller.animal_detail);
-module.exports = router; 
+module.exports = router;
+
+/* GET detail animal page */ 
+router.get('/detail', animal_controller.animal_view_one_Page); 

@@ -23,6 +23,20 @@ exports.animal_detail = async function(req, res) {
         res.send(`{"error": document for id ${req.params.id} not found`); 
     } 
 }; 
+
+ // Handle a show one view with id specified by query 
+ exports.animal_view_one_Page = async function(req, res) { 
+    console.log("single view for id "  + req.query.id) 
+    try{ 
+        result = await Animal.findById( req.query.id) 
+        res.render('detail',  
+{ title: 'Animal Details', toShow: result }); 
+    } 
+    catch(err){ 
+        res.status(500) 
+        res.send(`{'error': '${err}'}`); 
+    } 
+}; 
  
 // Handle Animal create on POST. 
 exports.animal_create_post = async function(req, res) { 
