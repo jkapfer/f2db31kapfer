@@ -107,6 +107,20 @@ failed`);
     } 
 }; 
 
+// Handle building the view for updating a costume. 
+// query provides the id 
+exports.animal_update_Page =  async function(req, res) { 
+    console.log("update view for item "+req.query.id) 
+    try{ 
+        let result = await Animal.findById(req.query.id) 
+        res.render('update', { title: 'Animal Update', toShow: result }); 
+    } 
+    catch(err){ 
+        res.status(500) 
+        res.send(`{'error': '${err}'}`); 
+    } 
+}; 
+
 // VIEWS 
 // Handle a show all view 
 exports.animal_view_all_Page = async function(req, res) { 

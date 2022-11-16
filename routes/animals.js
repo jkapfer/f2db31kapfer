@@ -14,4 +14,7 @@ module.exports = router;
 router.get('/detail', animal_controller.animal_view_one_Page);
 
 /* GET create animal page */ 
-router.get('/create', animal_controller.animal_create_Page); 
+router.get('/create', animal_controller.animal_create_Page);
+
+/* GET create update page */ 
+router.get('/update', animal_controller.animal_update_Page);

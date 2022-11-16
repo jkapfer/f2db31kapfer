@@ -1,0 +1,48 @@
+extends layout 
+ 
+block content 
+  h1= title
+
+  - let animalid = toShow._id 
+  - let name = toShow.name 
+  - let genus = toShow.genus 
+  - let species = toShow.species 
+  - let legs = toShow.legs
+  - let actionid = "/resource/animals/" + animalid 
+
+  div.row(class='mb-2')
+    div.mr-1 ID is
+    div #{animalid}
+
+  form(id='AnimalForm', action=actionid, method="PUT") 
+    div.form-group 
+        label.animalAttr(for='name') Animal name 
+        input#name(type='text', name='name', value=name) 
+    div.form-group 
+        label.animalAttr(for='genus') Animal genus 
+        input#genus(type='text', name='genus', value=genus) 
+    div.form-group 
+        label.animalAttr(for='species') Animal species
+        input#species(type='text', name='species', value=species) 
+    div.form-group 
+        label.animalAttr(for='legs') Animal legs 
+        input#species(type='number', name='legs', value=legs)
+    input(type="submit") 
+ 
+  script. 
+    document.forms['AnimalForm'].addEventListener('submit', (event) => { 
+        event.preventDefault(); 
+        // TODO do something here to show user that form is being submitted 
+        fetch(event.target.action, { 
+            method: 'PUT', 
+            body: new URLSearchParams(new FormData(event.target)) // event.target is the form 
+        }).then((resp) => { 
+            return resp.json(); // or resp.text() or whatever the server sends 
+        }).then((body) => { 
+            alert("Save succeded") 
+            // TODO handle body 
+        }).catch((error) => { 
+            // TODO handle error 
+            alert("Save failed " + error ) 
+        }); 
+    }); 
