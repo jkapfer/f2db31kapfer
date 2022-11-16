@@ -1,7 +1,7 @@
 extends layout 
  
 block content 
-  h1= title
+  h1(class="hcenter")= title
   if (toShow == null) 
     h2 No instance to update 
   else 
@@ -12,11 +12,11 @@ block content
     - let legs = toShow.legs
     - let actionid = "/resource/animals/" + animalid 
 
-    div.row(class='mb-2')
-        div.mr-1 ID is
+    div.row(class='mb-2 hcenter')
+        div.mr-1 ID is:
         div #{animalid}
 
-    form(id='AnimalForm', action=actionid, method="PUT") 
+    form(class= "hcenter", id='AnimalForm', action=actionid, method="PUT") 
         div.form-group 
             label.animalAttr(for='name') Animal name 
             input#name(type='text', name='name', value=name) 

@@ -1,7 +1,7 @@
 extends layout 
  
 block content 
-  h1= title 
+  h1(class="hcenter")= title 
   if (toShow == null) 
     h2 No instance to display 
   else 
@@ -10,19 +10,19 @@ block content
     - let genus = toShow.genus 
     - let species = toShow.species 
     - let legs = toShow.legs
-    div 
-      div.row 
-        div(class='animalAttr mr-3') Animal ID is: 
+
+      div(class="row hcenter")
+        div(class='animalAttr') Animal ID is: 
         div #{animalid} 
-      div.row 
-        div(class='animalAttr mr-3') Animal Name is: 
+      div(class="row hcenter")
+        div(class='animalAttr') Animal Name is: 
         div #{name} 
-      div.row 
-        div(class='animalAttr mr-3') Animal Genus is: 
+      div(class="row hcenter")
+        div(class='animalAttr') Animal Genus is: 
         div #{genus} 
-      div.row 
-        div(class='animalAttr mr-3') Animal Species is: 
+      div(class="row hcenter")
+        div(class='animalAttr') Animal Species is: 
         div #{species} 
-      div.row 
-        div(class='animalAttr mr-3') Animal Legs is: 
+      div(class="row hcenter")
+        div(class='animalAttr') Animal Legs is: 
         div #{legs} 

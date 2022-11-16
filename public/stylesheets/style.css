@@ -10,4 +10,12 @@ a {
 .animalAttr { 
   background-color: lightcoral; 
   width: 120px; 
-} 
+}
+
+.hcenter {text-align: center;}
+
+.center{ 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

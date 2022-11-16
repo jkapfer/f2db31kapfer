@@ -1,7 +1,7 @@
 extends layout 
  
 block content 
-  h1= title 
+  h1(class="hcenter")= title 
  
   if (toShow == null) 
     h2 No instance to delete 
@@ -14,25 +14,25 @@ block content
     - let actionid = "/resource/animals/" + animalid 
     script let actionid = "#{actionid}" 
     div 
-      div.row 
-        div(class='animalAttr mr-3') Animal ID is: 
+      div(class="row hcenter")
+        div(class='animalAttr') Animal ID is: 
         div #{animalid} 
-      div.row 
-        div(class='animalAttr mr-3') Animal Name is: 
+      div(class="row hcenter")
+        div(class='animalAttr') Animal Name is: 
         div #{name} 
-      div.row 
-        div(class='animalAttr mr-3') Animal Genus is: 
+      div(class="row hcenter")
+        div(class='animalAttr') Animal Genus is: 
         div #{genus} 
-      div.row 
-        div(class='animalAttr mr-3') Animal Species is: 
-        div #{species}
-      div.row 
-        div(class='animalAttr mr-3') Animal Legs is: 
+      div(class="row hcenter")
+        div(class='animalAttr') Animal Species is: 
+        div #{species} 
+      div(class="row hcenter")
+        div(class='animalAttr') Animal Legs is: 
         div #{legs}
     
- 
-    button(class="btn btn-danger m-2" onclick="deleteOnid()") Delete 
-    button(class="btn btn-secondary m-2" onclick="cancel()") Cancel 
+    div(class="center")
+      button(class="btn btn-danger m-2" onclick="deleteOnid()") Delete 
+      button(class="btn btn-secondary m-2" onclick="cancel()") Cancel 
  
   script. 
     function cancel() { 

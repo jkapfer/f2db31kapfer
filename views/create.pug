@@ -1,9 +1,9 @@
 extends layout 
  
 block content 
-  h1= title 
+  h1(class="hcenter")= title 
  
-  form(id='AnimalForm', action="/resource/animals", method="POST") 
+  form(class="hcenter", id='AnimalForm', action="/resource/animals", method="POST") 
     div.form-group 
         label.animalAttr(for='name') Animal name 
         input#name(type='text', name='name') 
