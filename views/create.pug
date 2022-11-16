@@ -11,27 +11,27 @@ block content
         label.animalAttr(for='genus') Animal genus 
         input#genus(type='text', name='genus') 
     div.form-group 
-        label.aninmalAttr(for='species') Animal species
+        label.animalAttr(for='species') Animal species
         input#species(type='text', name='species') 
     div.form-group 
-        label.aninmalAttr(for='legs') Animal legs 
+        label.animalAttr(for='legs') Animal legs 
         input#species(type='number', name='legs')
     input(type="submit") 
  
   script. 
     document.forms['AnimalForm'].addEventListener('submit', (event) => { 
-      event.preventDefault(); 
-      // TODO do something here to show user that form is being submitted 
-      fetch(event.target.action, { 
-        method: 'POST', 
-        body: new URLSearchParams(new FormData(event.target)) // event.target is the form 
-      }).then((resp) => { 
-        return resp.json(); // or resp.text() or whatever the server sends 
-      }).then((body) => { 
-        alert("Save succeded") 
-        // TODO handle body 
-      }).catch((error) => { 
-        // TODO handle error 
-        alert("Save failed " + error ) 
-      }); 
+        event.preventDefault(); 
+        // TODO do something here to show user that form is being submitted 
+        fetch(event.target.action, { 
+            method: 'POST', 
+            body: new URLSearchParams(new FormData(event.target)) // event.target is the form 
+        }).then((resp) => { 
+            return resp.json(); // or resp.text() or whatever the server sends 
+        }).then((body) => { 
+            alert("Save succeded") 
+            // TODO handle body 
+        }).catch((error) => { 
+            // TODO handle error 
+            alert("Save failed " + error ) 
+        }); 
     }); 
