@@ -6,13 +6,19 @@ block content
     const items = results
     
   div(class="container-fluid")
-    div(class="row justify-content-center")
-      each val in items 
+    div(class="row justify-content-center m-1")
+      each val in items
+        - let destination = `dispatch(\"/animals/update?id=${val._id}\")` 
         div(class="col-sm-2")
           h4(class="card-title") #{val["name"]}
           p(class="card-text") genus: #{val["genus"]} 
           p(class="card-text") species: #{val["species"]}
           p(class="card-text") legs: #{val["legs"]}
+          button.btn( class="btn-primary ml-1", onclick= destination) Update
+  script. 
+    function dispatch(path){ 
+      window.location.href=path 
+    }
     
     
 
