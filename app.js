@@ -101,6 +101,7 @@ app.use('/animals', animalsRouter);
 app.use('/gridbuild', gridbuildRouter);
 app.use('/selector', selectorRouter);
 app.use('/resource', resourceRouter);
+app.use('/logout', indexRouter);
 
 // passport config 
 // Use the existing connection 

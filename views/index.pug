@@ -1,16 +1,12 @@
-extends layout
-
-block content
-  h1= title
-  p Wake up Samurai... It's #{title}
-  input(type="button", class="btn btn-secondary" value="Press Me" onClick="doBump()")
-  div(id="bump") Bump the count
-  script.
-    var count = 0;
-    var bump = 1;
-    function doBump() {
-      count += bump;
-      bump ++;
-      document.getElementById("bump").innerHTML = `Count ${count} with bump ${bump}`;
-    }
-  a(href='/animals') goto search 
+extends layout 
+ 
+block content 
+  if (!user) 
+    a(href="/login") Login 
+    br 
+    a(href="/register") Register 
+  if (user) 
+    p You are currently logged in as #{user.username} 
+    a(href="/animals") Take me to animals 
+    br 
+    a(href="/logout") Logout
