@@ -8,13 +8,19 @@ block content
   div(class="container-fluid")
     div(class="row justify-content-center m-1")
       each val in items
-        - let destination = `dispatch(\"/animals/update?id=${val._id}\")` 
-        div(class="col-sm-2")
-          h4(class="card-title") #{val["name"]}
-          p(class="card-text") genus: #{val["genus"]} 
-          p(class="card-text") species: #{val["species"]}
-          p(class="card-text") legs: #{val["legs"]}
-          button.btn( class="btn-primary ml-1", onclick= destination) Update
+        - let update = `dispatch(\"/animals/update?id=${val._id}\")`
+        - let detail = `dispatch(\"/animals/detail?id=${val._id}\")`
+        - let del = `dispatch(\"/animals/delete?id=${val._id}\")` 
+        div(class="col-sm-4")
+          div(class="card text-center")
+            h4(class="card-title") #{val["name"]}
+            p(class="card-text") genus: #{val["genus"]} 
+            p(class="card-text") species: #{val["species"]}
+            p(class="card-text") legs: #{val["legs"]}
+            div(class="row p-4 mx-auto")
+              button.btn( class="btn-primary mr-1", onclick=update) Update
+              button.btn( class="btn-warning mr-1", onclick=detail) Details
+              button.btn( class="btn-danger mr-1", onclick=del) Delete
   script. 
     function dispatch(path){ 
       window.location.href=path 
