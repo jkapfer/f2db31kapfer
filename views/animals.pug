@@ -21,6 +21,8 @@ block content
               button.btn( class="btn-primary mr-1", onclick=update) Update
               button.btn( class="btn-info mr-1", onclick=detail) Details
               button.btn( class="btn-danger mr-1", onclick=del) Delete
+    div(class="row justify-content-center m-1")
+      a(class="btn btn-success btn-block m-1", href="/animals/create") Create New Animal
   script. 
     function dispatch(path){ 
       window.location.href=path 
