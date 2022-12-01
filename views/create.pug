@@ -16,7 +16,9 @@ block content
     div.form-group 
         label.animalAttr(for='legs') Animal legs 
         input#species(type='number', name='legs')
-    input(type="submit") 
+    input(type="submit")
+  div(class="center")
+    a(class="btn btn-danger m-2" href="/animals") Back
  
   script. 
     document.forms['AnimalForm'].addEventListener('submit', (event) => { 
