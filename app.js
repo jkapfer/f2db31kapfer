@@ -74,9 +74,8 @@ async function recreateDB(){
 } 
 
  
-let reseed = true; 
+let reseed = false; 
 if (reseed) { recreateDB();} 
- 
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
